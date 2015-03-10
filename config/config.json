@@ -1,0 +1,24 @@
+{
+  "development": {
+    "username": "root",
+    "password": null,
+    "database": "db_dev",
+    "host": "lite.db",
+    "dialect": "sqlite",
+    "logging": null
+  },
+  "test": {
+    "username": "root",
+    "password": null,
+    "database": "db_test",
+    "host": "lite.db",
+    "dialect": "sqlite"
+  },
+  "production": {
+    "username": "root",
+    "password": null,
+    "database": "db_prod",
+    "host": "lite.db",
+    "dialect": "sqlite"
+  }
+}

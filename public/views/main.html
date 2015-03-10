@@ -1,0 +1,57 @@
+<form>
+  <div class="input-group" style="margin-bottom:20px;">
+      <span class="input-group-btn">
+        <button class="btn btn-primary" ng-click="createUser()" type="submit">
+          Create user
+        </button>
+      </span>
+      <input type="text" class="form-control" ng-model="username"
+             placeholder="New Username..."/>
+  </div>
+</form>
+
+<div ng-repeat="user in users" class="panel panel-primary">
+
+  <div class="panel-heading">
+    <span style="font-weight: bold;">{{user.username}}</span>
+    <button class="btn btn-xs btn-danger pull-right" ng-click="deleteUser(user)">
+      <span class="glyphicon glyphicon-remove"></span> Delete
+    </button>
+  </div>
+
+  <div class="panel-body">
+    <ul class="list-group">
+
+      <li class="list-group-item">
+
+        <form>
+          <div class="input-group">
+            <span class="input-group-btn">
+              <button class="btn btn-default" ng-click="createTask(user)" type="submit">
+                Create task
+              </button>
+            </span>
+            <input type="text" class="form-control" ng-model="user.title"
+                   placeholder="New task description..."/>
+          </div>
+        </form>
+
+      </li>
+
+      <li ng-repeat="task in user.Tasks" class="list-group-item"
+          ng-class="task.isDone ? 'list-group-item-success' : 'list-group-item-warning'">
+        {{task.title}}
+
+        <button class="btn btn-xs btn-danger pull-right" ng-click="deleteTask(user,task)">
+          <span class="glyphicon glyphicon-remove"></span> Delete
+        </button>
+
+        <button class="btn btn-xs btn-success pull-right" ng-click="solveTask(user,task)"
+                ng-class="task.isDone ? 'hidden' : ''">
+          <span class="glyphicon glyphicon-ok"></span> Solve
+        </button>
+      </li>
+
+    </ul>
+  </div>
+</div>
